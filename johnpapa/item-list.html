@@ -1,0 +1,38 @@
+<div class="form-group">
+    <input type="text" class="form-control" id="search" placeholder="search" data-ng-model="search" />
+</div>
+<table class="table table-striped table-hover">
+    <tbody>
+
+        <tr>
+            <!--     <th>SIFRA</th> -->
+            <th>PROIZVODJAC</th>
+            <th>MODEL</th>
+            <th>CENA</th>
+            <!--    <th>TIP</th> -->
+            <th>SLIKA</th>
+            <td>LINK</td>
+            <!--     <th>GARANCIJA</th> -->
+            <!--    <th>AKCIJA</th> -->
+        </tr>
+
+        <tr ng-repeat="item in vm.items | filter:search">
+            <!--   <td>{{item.sifra}}</td> -->
+            <th>{{item.proizvodjac}}</th>
+            <th>{{item.model}}</th>
+            <th>{{item.cena}}</th>
+            <!--  <th>{{item.tip}}</th> -->
+            <td><img ng-src="{{item.slika}}" width="60" height="60"></img>
+            </td>
+            <!--   <th>{{item.garancija}}</th> -->
+            <!--    <th>{{item.akcija}}</th> -->
+
+            <th>
+                <button ng-click="vm.itemDetail(item.sifra)" class="btn btn-primary">detaljnije</button>
+            </th>
+
+
+
+        </tr>
+    </tbody>
+</table>
