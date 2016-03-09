@@ -1,0 +1,19 @@
+.move {
+    position: absolute;
+    width: 900px;
+    height: 1000px;
+    left: 25%;
+    top: 80px;
+}
+
+.list-group {
+    text-align: center;
+}
+
+.rowone {
+    padding: 5px;
+}
+
+.rowoneitems {
+    padding: 1px;
+}

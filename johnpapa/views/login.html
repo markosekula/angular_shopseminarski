@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <h2> <span class="glyphicon glyphicon-log-in"></span>    Log In Page </h2>
+
+    </div>
+</div>
+
+<div class="row">
+
+
+    <div class="col-md-3">
+        <form role="form" name="form1">
+            <div class="form-group">
+                <p>Welcome: {{user.email}}</p>
+                <label for="exampleemail">Email: </label>
+                <input type="text" placeholder="Enter email" class="form-control" ng-model="user.email" required> </input>
+            </div>
+
+            <div class="form-group">
+                <label for="examplepasword">Password: </label>
+                <input type="password" placeholder="Enter password" id="examplepassword" class="form-control" ng-model="user.pass" required> </input>
+            </div>
+
+
+            <div>
+                <button class="btn btn-default" type="submit" ng-disabled="form1.$invalid" ng-click="vm.login(user)">Submit</button>
+            </div>
+            <br>
+
+            <div>
+                <ul class="nav nav-pills nav-stacked ">
+                    <li role="presentation" ng-click="vm.openKeyboard()"><a>Keyboard</a></li>
+                    <li role="presentation" ng-click="vm.openCPU()"><a>Processor</a></li>
+                    <li role="presentation" ng-click="vm.openRAM()"><a>Ram Memory</a></li>
+                    <li role="presentation"><a>Flash Memory</a></li>
+                    <li role="presentation"><a>Monitor</a></li>
+                    <li role="presentation"><a>Mouse</a></li>
+                    <li role="presentation"><a>Graphics Card</a></li>
+                    <li role="presentation"><a>Hard Disk</a></li>
+                    <li role="presentation"><a>Motherboard</a></li>
+                </ul>
+
+            </div>
+            <br>
+        </form>
+    </div>
+    <br>
+    <p> {{vm.message}} </p>
+
+    <div class="col-md-9">
+        <table>
+            <tr>
+                <td ng-repeat="itemr in vm.randomitems" ng-if="$index<=4">
+                    <table>
+                        <tr> <img class="rowone" ng-src="{{itemr.slika}}" width="180" height="180"></img>
+                        </tr>
+                        <br>
+
+                        <tr>
+                            <p>{{itemr.proizvodjac }}</p>
+                        </tr>
+                        <br>
+
+                        <tr>
+                            <p>{{itemr.model }}</p>
+                        </tr>
+                        <br>
+                        <tr>
+                            <button ng-click="vm.itemDetail(itemr)" class="btn btn-info">detaljnije</button>
+                        </tr>
+                        <br>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td ng-repeat="itemr in vm.randomitems" ng-if="$index>=5 && $index<=9">
+                    <table>
+                        <tr> <img class="rowone" ng-src="{{itemr.slika}}" width="180" height="180"></img>
+                        </tr>
+                        <br>
+
+                        <tr>{{itemr.proizvodjac }}</tr>
+                        <br>
+
+                        <tr>{{itemr.model }}</tr>
+                        <br>
+
+                        <tr>
+                            <button ng-click="vm.itemDetail(itemr)" class="btn btn-info">detaljnije</button>
+                        </tr>
+                        <br>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td ng-repeat="itemr in vm.randomitems" ng-if="$index>9">
+                    <table>
+                        <tr> <img class="rowone" ng-src="{{itemr.slika}}" width="180" height="180"></img>
+                        </tr>
+                        <br>
+
+                        <tr>{{itemr.proizvodjac }}</tr>
+                        <br>
+
+                        <tr>{{itemr.model }}</tr>
+                        <br>
+
+                        <tr>
+                            <button ng-click="vm.itemDetail(itemr)" class="btn btn-info">detaljnije</button>
+                        </tr>
+                        <br>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>

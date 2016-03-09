@@ -1,0 +1,48 @@
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h2> <span class="glyphicon glyphicon-folder-open"></span>     Online Shop-John Papa </h2>
+
+        </div>
+    </div>
+    <input type="text" class="form-control" id="search" placeholder="search" data-ng-model="search" />
+</div>
+
+<table class="table table-striped table-hover">
+    <tbody>
+
+
+        <tr>
+            <th>PROIZVODJAC</th>
+            <th>MODEL</th>
+            <th>CENA</th>
+            <th>SLIKA</th>
+            <td>LINK</td>
+        </tr>
+
+
+
+        <tr ng-repeat="item in vm.items | filter:search" ng-if="key != 'akcija'">
+
+            <!--
+            <tr ng-repeat="(key, val) in vm.item">
+
+                <td> {{key}} {{val}} </td>
+            </tr>
+            -->
+
+            <th>{{item.proizvodjac}}</th>
+            <th>{{item.model}}</th>
+            <th>{{item.cena}}</th>
+            <td><img ng-src="{{item.slika}}" width="100" height="100"></img>
+            </td>
+
+            <th>
+                <button ng-click="vm.itemDetail(item.id)" class="btn btn-primary">detaljnije</button>
+            </th>
+
+
+        </tr>
+    </tbody>
+</table>
