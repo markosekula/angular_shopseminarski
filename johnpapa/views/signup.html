@@ -1,0 +1,68 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h1 class="text-center">Signup </h1>
+        </div>
+
+        <div class="modal-body">
+            <form role="form" name="form1">
+                <div class="signup">
+                    <table>
+                        <tr>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                <span class="glyphicon glyphicon-user"> </span>
+                                    </span>
+                                    <input type="text" placeholder="Enter name" class="form-control" ng-model="usersignup.ime" required> </input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                <span class="glyphicon glyphicon-user"> </span>
+                                    </span>
+                                    <input type="text" placeholder="Enter surname" class="form-control" ng-model="usersignup.prezime" required> </input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                <span class="glyphicon glyphicon-save"> </span>
+                                    </span>
+                                    <input type="text" placeholder="Enter email" class="form-control" ng-model="usersignup.email" required> </input>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 
+             <span class="glyphicon glyphicon-lock"> </span></span>
+                                    <input type="password" placeholder="Enter password" id="examplepassword" class="form-control" ng-model="usersignup.pass" required> </input>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="submit" value="Register" class="btn btn-block btn-info" ng-model="user.pass" ng-click="vm.signup(usersignup)">
+                                <span class="pull-right"><a href="#login">Login </a> </span>
+                                </input>
+                            </div>
+
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <p> {{vm.poruka}} </p>
+
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-1">
+                <button class="btn-danger" ng-click="vm.nazadnapocetnu()">cancel </button>
+            </div>
+        </div>
+    </div>
+</div>

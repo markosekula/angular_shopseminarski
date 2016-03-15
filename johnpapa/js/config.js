@@ -1,19 +1,34 @@
     (function () {
         angular
             .module('mainApp')
-            .config(config)
+            .config(config);
 
 
         function config($routeProvider, $httpProvider) {
             $routeProvider
                 .when('/', {
+                    templateUrl: 'views/pocetna.html',
+                    controller: 'controllerLogin',
+                    controllerAs: 'vm'
+                })
+                .when('/login', {
                     templateUrl: 'views/login.html',
                     controller: 'controllerLogin',
                     controllerAs: 'vm'
                 })
-                .when('/home', {
-                    templateUrl: 'views/home.html',
+                .when('/signup', {
+                    templateUrl: 'views/signup.html',
+                    controller: 'controllerLogin',
+                    controllerAs: 'vm'
+                })
+                .when('/admin', {
+                    templateUrl: 'views/admin.html',
                     controller: 'controllerHome',
+                    controllerAs: 'vm'
+                })
+                .when('/akcija', {
+                    templateUrl: 'views/akcija.html',
+                    controller: 'controllerLogin',
                     controllerAs: 'vm'
                 })
                 .when('/Keyboard', {

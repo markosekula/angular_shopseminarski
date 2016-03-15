@@ -12,10 +12,19 @@
         vm.openKeyboard = openKeyboard;
         vm.openCPU = openCPU;
         vm.openRAM = openRAM;
+        vm.openFMem = openFMem;
+        vm.openGPU = openGPU;
+        vm.openMemory = openMemory;
+        vm.openMBoard = openMBoard;
+        vm.openMonitor = openMonitor;
+        vm.openMouse = openMouse;
         vm.message = '';
         vm.login = login;
+        vm.signup = signup;
         vm.itemDetail = itemDetail;
+        vm.nazadnapocetnu = nazadnapocetnu;
         activateRandom();
+        randomOnAction();
 
         function login(user) {
             return Message(user).then(function () {
@@ -28,8 +37,23 @@
             return loginService.login(user).then(function (data) {
                 vm.message = data;
                 return vm.message;
+            });
+        }
+
+        function signup(usersignup) {
+            return Poruka(usersignup).then(function () {
+                console.log("Activated!");
 
             });
+        }
+
+        function Poruka(usersignup) {
+            return loginService.signup(usersignup).then(function (data) {
+                vm.poruka = data;
+                return vm.poruka;
+
+            });
+
         }
 
         function activateRandom() {
@@ -65,7 +89,58 @@
 
         }
 
+        function openFMem() {
+            $location.path('FMem');
 
+        }
+
+        function openGPU() {
+            $location.path('GPU');
+
+        }
+
+        function openMemory() {
+            $location.path('Memory');
+
+        }
+
+        function openMBoard() {
+            $location.path('MBoard');
+
+        }
+
+
+        function openMonitor() {
+            $location.path('Monitor');
+
+        }
+
+        function openMouse() {
+            $location.path('Mouse');
+
+        }
+
+        function randomOnAction() {
+            return itemRandomOnAction().then(function () {
+                console.log("Activated RandomOnAction!")
+            });
+
+        };
+
+        function itemRandomOnAction() {
+            return mainFactory.randomOnAction()
+                .then(function (data) {
+                    vm.randomonaction = data;
+                    return vm.randomonaction;
+
+                });
+
+        };
+
+        function nazadnapocetnu() {
+            $location.path('/');
+
+        }
 
 
     }

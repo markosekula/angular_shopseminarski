@@ -8,50 +8,39 @@
     function controllerList($location, mainFactory, $routeParams) {
 
         var vm = this;
-        vm.itemDetail = itemDetail;
+        vm.back = back;
+        vm.Detail = Detail;
+        var vrsta = $location.url(); // window.location
+        //console.log(vrsta);
 
-        activateKeyboard();
-        //  activateProcessor();
+        activateAllItem(vrsta);
 
-        function activateKeyboard() {
-            return getKeyboard().then(function () {
-                console.log("Activated Keyboard!")
+        function activateAllItem(vrsta) {
+            return getOneType(vrsta).then(function () {
+                console.log("Activated Type!")
             });
 
         };
 
-        function getKeyboard() {
-            return mainFactory.getAllKeyboard()
+        function getOneType(vrsta) {
+            return mainFactory.getOneType(vrsta)
                 .then(function (data) {
                     vm.items = data;
+                    // console.log(vm.items)
                     return vm.items;
                 });
 
         };
 
+        function Detail(index) {
+            //console.log("objecta" + index);
+            $location.path('/' + index.vrsta + '/' + index.id);
 
-        //        function activateProcessor() {
-        //            return getProcessor.then(function () {
-        //                console.log("Activated Processor!")
-        //
-        //            });
-        //
-        //        };
-        //
-        //        function getProcessor() {
-        //            return mainFactory.getAllProcessor()
-        //                .then(function (data) {
-        //                    vm.items = data;
-        //                    return vm.items;
-        //                });
-        //
-        //        };
+        }
 
-        function itemDetail(ix) {
-            $location.path("/Keyboard/" + ix);
-        };
-
-
+        function back() {
+            $location.path("/");
+        }
 
     };
 

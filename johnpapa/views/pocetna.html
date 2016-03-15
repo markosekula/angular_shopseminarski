@@ -1,0 +1,141 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="col-md-4">
+            <h1> <span class="glyphicon glyphicon-gift"></span>  Online SHOP </h1>
+        </div>
+
+        <div id="pretraga" class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon"> 
+                <span class="glyphicon glyphicon-search"> </span>
+                </span>
+                <input type="text" class="searchpocetna" placeholder="Pretraga artikala " data-ng-model="search" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-inverse" id="navwith">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">Proizvodi:</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">O nama</a></li>
+                            <li><a href="#akcija">Akcija</a></li>
+                            <li><a href="#">Korpa</a></li>
+                            <li><a href="#">Kontakt</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-3">
+        <div>
+            <ul class="nav nav-pills nav-stacked ">
+                <li role="presentation" ng-click="vm.openKeyboard()"><a>Keyboard</a></li>
+                <li role="presentation" ng-click="vm.openCPU()"><a>Processor</a></li>
+                <li role="presentation" ng-click="vm.openRAM()"><a>Ram Memory</a></li>
+                <li role="presentation" 160 ng-click="vm.openFMem()"><a>Flash Memory</a></li>
+                <li role="presentation" ng-click="vm.openMonitor()"><a>Monitor</a></li>
+                <li role="presentation" ng-click="vm.openMouse()"><a>Mouse</a></li>
+                <li role="presentation" ng-click="vm.openGPU()"><a>Graphics Card</a></li>
+                <li role="presentation" ng-click="vm.openMemory()"><a>Hard Disk</a></li>
+                <li role="presentation" ng-click="vm.openMBoard()"><a>Motherboard</a></li>
+            </ul>
+
+        </div>
+        <br>
+
+    </div>
+
+    <div class="col-md-9">
+        <table>
+            <tr>
+                <tr>
+                    <p>Proizvodi u ponudi: </p>
+                </tr>
+                <td id="rowone" ng-repeat="itemr in vm.randomitems | filter:search" ng-if="$index<=4">
+                    <table>
+                        <tr> <img ng-src="{{itemr.slika}}" width="180" height="180"></img>
+                        </tr>
+                        <br>
+
+                        <tr>
+                            {{itemr.proizvodjac }}
+                        </tr>
+                        <br>
+
+                        <tr>
+                            {{itemr.model }}
+                        </tr>
+                        <br>
+                        <tr>
+                            <button ng-click="vm.itemDetail(itemr)" class="btn btn-info">detaljnije</button>
+                        </tr>
+                        <br>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td ng-repeat="itemr in vm.randomitems | filter:search" ng-if="$index>=5 && $index<=9">
+                    <table>
+                        <tr> <img ng-src="{{itemr.slika}}" width="180" height="180"></img>
+                        </tr>
+                        <br>
+
+                        <tr>{{itemr.proizvodjac }}</tr>
+                        <br>
+
+                        <tr>{{itemr.model }}</tr>
+                        <br>
+
+                        <tr>
+                            <button ng-click="vm.itemDetail(itemr)" class="btn btn-info">detaljnije</button>
+                        </tr>
+                        <br>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td ng-repeat="itemr in vm.randomitems | filter:search" ng-if="$index>9">
+                    <table>
+                        <tr> <img ng-src="{{itemr.slika}}" width="180" height="180"></img>
+                        </tr>
+                        <br>
+
+                        <tr>{{itemr.proizvodjac }}</tr>
+                        <br>
+
+                        <tr>{{itemr.model }}</tr>
+                        <br>
+
+                        <tr>
+                            <button ng-click="vm.itemDetail(itemr)" class="btn btn-info">detaljnije</button>
+                        </tr>
+                        <br>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+</div>

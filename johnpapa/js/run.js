@@ -15,7 +15,7 @@
             //console.log('logged: ' + loginService.islogged());
 
             if (routepermission.indexOf($location.path()) != -1 && !loginService.islogged()) {
-                $location.path('/login');
+                $location.path('/pocetna');
             }
 
         }
