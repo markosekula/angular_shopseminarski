@@ -1,5 +1,185 @@
-<div class="wrap">
-    <p> {{vm.txt}} </p>
-    <a href="" ng-click="vm.logout()">Logout </a>
-
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-3"> </div>
+        <div class="col-md-7">
+            <h1>ADMINSKA stranica <h1></div>
+        <div class="col-md-2">
+            <div  id="adminback" class="btn-group"  role="group">  
+            <button ng-click="vm.nazadnapocetnu()" type="button" role="group" class="btn btn-danger">Pocetna</button> 
+           </div>
+        </div>
+    </div>
 </div>
+        <br>
+      
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+    <div class="btn-group"  role="group">
+    <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Proizvodi
+        <span class="caret"></span>
+    </button>
+    
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" >    
+        <li ng-repeat="type in vm.distincttype" ng-click="vm.getDistinctType(type.vrsta)"><a>{{type.vrsta}}</a></li> 
+            </ul>
+        </div>
+    
+        <div class="btn-group" role="group">
+            <button ng-click="" type="button" role="group" class="btn btn-warning">Korisnici</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button ng-click="" type="button" role="group" class="btn btn-warning">Korpa</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button ng-click="" type="button" role="group" class="btn btn-warning">Kontakt</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" role="group" class="btn btn-warning" ng-click="vm.logout()">Odjavi se</button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-2"> </div>
+        <div class="col-md-8">
+            <form role="form1" name="form1" ng-show="vm.prikazidugmice">
+<!--                    <h1><a>{{type.vrsta}}</a> </h1></div>-->
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <input type="submit" value="DODAJ" class="btn btn-info" ng-click="vm.dodajDugme(vm.dodajartikal)">
+                </input>
+            </div>
+
+            <div class="btn-group" role="group">
+                <input type="submit" value="IZMENI" class="btn btn-info" ng-click="vm.listaSvihArtikala(vm.listaproizvoda)">
+                </input>
+            </div>
+        </div>
+        </form>
+
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-3"> </div>
+        <div class="col-md-7">
+
+            <form role="form1" name="form1" ng-if="vm.formizmeni">
+                <table>
+                    <tr ng-repeat="item in vm.items">
+                        <th>{{item.proizvodjac}}</th>
+                        <th>{{item.model}}</th>
+                        <th>{{item.cena}}</th>
+                        <th><img ng-src="{{item.slika}}" width="80" height="80"></img>
+                        </th>
+
+                        <th>
+                            <button ng-click="vm.izmeniartikal(item.id)" class="btn btn-danger btn-md">izmeni</button>
+                        </th>
+
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<form role="form" name="form" ng-show="vm.prikazisveinpute">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2"> </div>
+
+            <div class="col-md-8">
+
+
+                <div>
+                    <h1>{{vm.ime}} </h1></div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="vrsta" ng-model="proizvodi.vrsta" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="proizvodjac" aria-describedby="basic-addon1" ng-model="proizvodi.proizvodjac" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="model" aria-describedby="basic-addon1" ng-model="proizvodi.model" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="cena" aria-describedby="basic-addon1" ng-model="proizvodi.cena" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="garancija" aria-describedby="basic-addon1" ng-model="proizvodi.garancija" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="slika" aria-describedby="basic-addon1" ng-model="proizvodi.slika" required>
+                </div>
+
+
+                <div class="input-group"> <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="akcija" aria-describedby="basic-addon1" ng-model="proizvodi.akcija" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="tip" aria-describedby="basic-addon1" ng-model="proizvodi.tip">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="kapacitet" aria-describedby="basic-addon1" ng-model="proizvodi.kapacitet">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="socket" aria-describedby="basic-addon1" ng-model="proizvodi.socket">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="dijagonala" aria-describedby="basic-addon1" ng-model="proizvodi.dijagonala">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"> 
+  <span class="glyphicon glyphicon-ok" id="basic-addon1"></span> </span>
+                    <input type="text" class="form-control" placeholder="takt" aria-describedby="basic-addon1" ng-model="proizvodi.takt">
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value="Dodaj u bazu" class="btn btn-primary" ng-click="vm.adminInsertItem(proizvodi)">
+                    </input>
+
+
+                    <p> {{vm.porukaadmin}}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

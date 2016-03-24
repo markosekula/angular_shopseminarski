@@ -11,8 +11,8 @@
         return {
             getRandom: getRandom,
             getDetailItems: getDetailItems,
-            getOneType: getOneType,
-            randomOnAction: randomOnAction
+            randomOnAction: randomOnAction,
+            getOneTypeUser: getOneTypeUser
         };
 
         function getRandom() {
@@ -45,7 +45,7 @@
 
         }
 
-        function getOneType(vrsta) {
+        function getOneTypeUser(vrsta) {
             return $http.get('http://localhost:8082/Seminarski/rest/items/getitem' + vrsta)
                 .then(Complete)
                 .catch(Error);
@@ -66,7 +66,6 @@
                 .catch(Error);
 
             function Complete(response) {
-                console.log(response.data)
                 return response.data;
             }
 

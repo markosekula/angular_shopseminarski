@@ -8,40 +8,37 @@
 
     function loginService($http, $location, sessionService) {
         var vm = this;
-        vm.admin = '';
 
         return {
             login: login,
             logout: logout,
-            islogged: islogged,
-            signup: signup,
-            isAdmin: isAdmin
+            isloggedAdmin: isloggedAdmin,
+            signup: signup
+
 
         };
 
         function login(user) {
-            return $http.post('http://localhost:8082/Seminarski/rest/korisnik/login', user).then(msgSucces);
+            return $http.post('http://localhost:8082/Seminarski/rest/korisnik/exist', user).then(msgSucces);
 
             function msgSucces(msg) {
                 if (msg.data) {
-                    // console.log(msg.data.token)
+                    console.log(msg.data.token)
                     sessionService.set('token', msg.data.token);
-                    $location.path('/admin');
+                    sessionService.set('id', msg.data.id);
+                    sessionService.set('admin', msg.data.admin);
+
+                    if (msg.data.admin == 1) {
+                        $location.path('/admin');
+
+                    } else {
+                        $location.path('/');
+                    }
 
                 } else {
                     vm.message = 'Neispravni podaci!!';
                     return vm.message;
                 }
-            }
-
-        }
-
-        function isAdmin(admin) {
-            if (vm.admin == 1) {
-                return true;
-            } else {
-                return false;
-
             }
 
         }
@@ -66,12 +63,15 @@
 
         function logout() {
             sessionService.destroy('token');
+            sessionService.destroy('id');
+            sessionService.destroy('admin');
             $location.path('/pocetna');
         }
 
-        function islogged() {
-            //console.log("aa " + sessionService.get('user'));
-            if (sessionService.get('token')) return true;
+
+        function isloggedAdmin() {
+            if (sessionService.get('admin') == 1)
+                return true;
 
         }
 

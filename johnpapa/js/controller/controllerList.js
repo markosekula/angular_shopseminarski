@@ -23,7 +23,7 @@
         };
 
         function getOneType(vrsta) {
-            return mainFactory.getOneType(vrsta)
+            return mainFactory.getOneTypeUser(vrsta)
                 .then(function (data) {
                     vm.items = data;
                     // console.log(vm.items)

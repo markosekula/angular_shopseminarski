@@ -14,47 +14,50 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <nav class="navbar navbar-inverse" id="navwith">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Proizvodi:</a>
-                        </div>
-                        <ul class="nav navbar-nav">
-                            <li><a href="#">O nama</a></li>
-                            <li><a href="#akcija">Akcija</a></li>
-                            <li><a href="#">Korpa</a></li>
-                            <li><a href="#">Kontakt</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                            <li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                        </ul>
-                    </div>
-                </nav>
 
-            </div>
-
-
-        </div>
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <nav class="navbar navbar-inverse" id="navwith">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Proizvodi:</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">O nama</a></li>
+                    <li><a href="#akcija">Akcija</a></li>
+                    <li><a href="#">Korpa</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#signup"><span class="glyphicon glyphicon-user"></span> Registruj se</a></li>
+                    <li ng-show="vm.show()"><a href="#login"><span class="glyphicon glyphicon-log-in" ></span> Prijavi se</a></li>
+                    <li ng-hide="vm.show()" ng-click="vm.logout()"><a href=""><span  class="glyphicon glyphicon-off" ></span> Odjavi se</a></li>
+
+
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+
+</div>
 
 <div class="row">
     <div class="col-md-3">
         <div>
             <ul class="nav nav-pills nav-stacked ">
-                <li role="presentation" ng-click="vm.openKeyboard()"><a>Keyboard</a></li>
-                <li role="presentation" ng-click="vm.openCPU()"><a>Processor</a></li>
-                <li role="presentation" ng-click="vm.openRAM()"><a>Ram Memory</a></li>
-                <li role="presentation" 160 ng-click="vm.openFMem()"><a>Flash Memory</a></li>
-                <li role="presentation" ng-click="vm.openMonitor()"><a>Monitor</a></li>
-                <li role="presentation" ng-click="vm.openMouse()"><a>Mouse</a></li>
-                <li role="presentation" ng-click="vm.openGPU()"><a>Graphics Card</a></li>
-                <li role="presentation" ng-click="vm.openMemory()"><a>Hard Disk</a></li>
-                <li role="presentation" ng-click="vm.openMBoard()"><a>Motherboard</a></li>
+                <li role="presentation" ng-click="vm.openKeyboard()"><a>Tastature</a></li>
+                <li role="presentation" ng-click="vm.openCPU()"><a>Procesori</a></li>
+                <li role="presentation" ng-click="vm.openRAM()"><a>Ram Memorije</a></li>
+                <li role="presentation" 160 ng-click="vm.openFMem()"><a>Fles Memorije</a></li>
+                <li role="presentation" ng-click="vm.openMonitor()"><a>Monitori</a></li>
+                <li role="presentation" ng-click="vm.openMouse()"><a>Misevi</a></li>
+                <li role="presentation" ng-click="vm.openGPU()"><a>Graficke Kartice</a></li>
+                <li role="presentation" ng-click="vm.openMemory()"><a>Hard Diskovi</a></li>
+                <li role="presentation" ng-click="vm.openMBoard()"><a>Maticne Ploce</a></li>
             </ul>
 
         </div>

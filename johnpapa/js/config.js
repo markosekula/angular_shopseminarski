@@ -3,12 +3,11 @@
             .module('mainApp')
             .config(config);
 
-
         function config($routeProvider, $httpProvider) {
             $routeProvider
                 .when('/', {
                     templateUrl: 'views/pocetna.html',
-                    controller: 'controllerLogin',
+                    controller: 'controllerPocetna',
                     controllerAs: 'vm'
                 })
                 .when('/login', {
@@ -23,12 +22,17 @@
                 })
                 .when('/admin', {
                     templateUrl: 'views/admin.html',
-                    controller: 'controllerHome',
+                    controller: 'controllerAdmin',
+                    controllerAs: 'vm'
+                })
+                .when('/admin/:id', {
+                    templateUrl: 'views/admin-edit.html',
+                    controller: 'controllerEdit',
                     controllerAs: 'vm'
                 })
                 .when('/akcija', {
                     templateUrl: 'views/akcija.html',
-                    controller: 'controllerLogin',
+                    controller: 'controllerAkcija',
                     controllerAs: 'vm'
                 })
                 .when('/Keyboard', {

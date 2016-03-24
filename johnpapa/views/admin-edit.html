@@ -1,0 +1,44 @@
+<div> </div>
+<br>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2"> </div>
+            <div class="col-md-8">
+                <h1>{{vm.idforedit.vrsta}}</h1> </div>
+            <br>
+            <div class="col-md-2">
+                <input class="btn btn-primary " ng-click="vm.nazadNaAdminStranicu()" type="button" value="nazad" id="adminnback">
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<form id="formedit" role="form" name="form">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2"> </div>
+
+            <div class="col-md-8">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="(key,value) in vm.idforedit" ng-if="key != 'id' ">
+
+                        {{key}}:
+                        <input ng-value="value" ng-model="vm.item[key]"></input>
+                    </li>
+                </ul>
+
+                <div>
+                    <button ng-click="vm.buttonEdit(vm.item)" class="btn btn-danger btn-md ">Sacuvaj</button>
+
+                    <button ng-click="vm.buttonDelete(vm.idforedit.id)" class="btn btn-danger btn-md ">Izbrisi</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
