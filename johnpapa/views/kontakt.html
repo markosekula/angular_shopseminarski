@@ -1,0 +1,40 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col-md-1"> </div>
+            <div class="col-md-10">
+                <div>
+                    <h1> <span class="glyphicon glyphicon-envelope"></span>  Kontaktirajte nas </h1> </div>
+                <br>
+
+                <form>
+                    <label>Ime: </label>
+                    <div class="form-group">
+                        <input type="text" placeholder="ime" ng-model="ss" class="form-control" required></input>
+                    </div>
+                    <br>
+                    <label>Email: </label>
+                    <div class="form-group">
+                        <input type="email" placeholder="marko10@example.com" ng-model="ssa" class="form-control" required></input>
+                    </div>
+                    <br>
+                    <fieldset class="form-group">
+                        <label for="exampleTextarea">Unesite svoju poruku:</label>
+                        <textarea class="form-control" ng-model="ssaa" id="exampleTextarea" rows="4" required></textarea>
+                    </fieldset>
+                    <br>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-info btn-md" ng-click="">posalji</button>
+                        <span class="pull-right"> <button id="kontaktdugme" type="button" class="btn btn-danger btn-md" ng-click="vm.pocetna()">pocetna</button> </span>
+                    </div>
+
+
+
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

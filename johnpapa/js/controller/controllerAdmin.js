@@ -52,11 +52,12 @@
         }
 
         function listaSvihArtikala(lista) {
-            //console.log("dsadas:" + lista)
+            console.log("dsadas:" + lista)
             return itemOneTypeForEdit(lista).then(function (data) {
                 // console.log("listaaaaaa:" + lista)
                 vm.formizmeni = true;
                 vm.prikazisveinpute = false;
+                return vm.ime = lista;
 
             });
 

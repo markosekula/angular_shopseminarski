@@ -12,7 +12,7 @@
         var id = ($routeParams.id);
         console.log("url:" + id)
 
-        vm.item = {};
+        // vm.item = {};
 
         idEdit(id);
         vm.buttonEdit = buttonEdit;
@@ -30,9 +30,10 @@
         function getIdFromURL(id) {
             return adminService.getIdForEdit(id)
                 .then(function (data) {
-                    vm.idforedit = data;
 
-                    //definisanje promenljive za dugme sacuvaj
+                    vm.idforedit = data;
+                    console.log("getID:" + vm.idforedit)
+                        //definisanje promenljive za dugme sacuvaj
                     vm.item = vm.idforedit;
 
                     return vm.idforedit;

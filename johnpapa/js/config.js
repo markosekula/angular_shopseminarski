@@ -35,6 +35,11 @@
                     controller: 'controllerAkcija',
                     controllerAs: 'vm'
                 })
+                .when('/kontakt', {
+                    templateUrl: 'views/kontakt.html',
+                    controller: 'controllerKontakt',
+                    controllerAs: 'vm'
+                })
                 .when('/Keyboard', {
                     templateUrl: 'views/item-list.html',
                     controller: 'controllerList',

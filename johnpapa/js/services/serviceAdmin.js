@@ -4,9 +4,9 @@
         .module('mainApp')
         .factory('adminService', adminService);
 
-    adminService.$inject = ['$http'];
+    adminService.$inject = ['$http', 'sessionService', '$location'];
 
-    function adminService($http) {
+    function adminService($http, sessionService, $location) {
         var vm = this;
 
         return {
@@ -70,17 +70,31 @@
         }
 
         function getIdForEdit(id) {
-            return $http.get('http://localhost:8082/Seminarski/rest/items/getitem/by/' + id)
+            return $http.get('http://localhost:8082/Seminarski/rest/items/getitem/byadmin/' + id)
                 .then(Complete)
                 .catch(Error);
 
             function Complete(response) {
-                console.log(response.data)
                 return response.data;
             }
 
-            function Error() {
-                return console.log('faield edit id');
+            function Error(response) {
+                console.log(response)
+                if (response.data.error == "HTTP 401 Unauthorized") {
+                    console.log('HTTP faield edit id.');
+                    $location.path('/pocetna');
+
+                } else if (response.status == 401) {
+                    console.log(response.status)
+                    sessionService.destroy('token');
+                    sessionService.destroy('id');
+                    sessionService.destroy('admin');
+                    $location.path('/pocetna');
+                    console.log('faield edit id. Status. ');
+
+                } else {
+                    return console.log('faield edit id');
+                }
             }
 
         }
