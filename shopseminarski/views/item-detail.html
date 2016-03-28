@@ -1,0 +1,29 @@
+<div>
+    <div class="row">
+
+
+        <div class="movedetailitem">
+
+
+            <ul class="list-group">
+                <li class="list-group-item"><img ng-src="{{vm.item.slika}}" width="300" height="300"></img>
+                </li>
+
+                <li class="list-group-item" ng-repeat="(key,value) in vm.item" ng-if="key != 'id' && key != 'slika' && key != 'vrsta' && key != 'akcija' ">
+
+                    {{key}}: {{value}}
+
+                </li>
+
+                <li class="list-group-item ">akcija: {{vm.onAction()}} </li>
+
+            </ul>
+
+            <div>
+                <button class="btn btn-primary " ng-click="vm.back() "> Nazad </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
