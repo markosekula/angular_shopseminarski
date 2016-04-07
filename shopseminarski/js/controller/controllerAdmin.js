@@ -96,11 +96,13 @@
 
         function adminInsertItem(proizvodi) {
             return porukaAdmin(proizvodi).then(function () {
+
                 console.log("Activated InsertItem!");
             });
         }
 
         function porukaAdmin(proizvodi) {
+            //console.log("prozZZZ", proizvodi)
             return adminService.insertItem(proizvodi).then(function (data) {
                 vm.porukaadmin = data;
                 return vm.porukaadmin;

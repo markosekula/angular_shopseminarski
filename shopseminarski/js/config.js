@@ -40,6 +40,11 @@
                     controller: 'controllerKontakt',
                     controllerAs: 'vm'
                 })
+                .when('/korpa', {
+                    templateUrl: 'views/korpa.html',
+                    controller: 'controllerKorpa',
+                    controllerAs: 'vm'
+                })
                 .when('/Keyboard', {
                     templateUrl: 'views/item-list.html',
                     controller: 'controllerList',
@@ -149,7 +154,7 @@
                 }
 
                 function request(config) {
-                    config.headers = config.headers || {};
+                    config.headers = config.headers || {}; //'Bearer ' +
                     if (sessionService.get('token')) {
                         config.headers.Authorization = 'Bearer ' + sessionService.get('token');
                     }

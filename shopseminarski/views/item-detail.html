@@ -5,15 +5,25 @@
         <div class="movedetailitem">
 
 
+
             <ul class="list-group">
                 <li class="list-group-item"><img ng-src="{{vm.item.slika}}" width="300" height="300"></img>
+
+                    <div id="dodajUkorpu">
+                        <span class="glyphicon glyphicon-shopping-cart"> </span>
+
+                        <button class="btn btn-warning" ng-click="vm.addToCart(vm.item)"> Dodaj u korpu </button>
+                    </div>
                 </li>
+
+
 
                 <li class="list-group-item" ng-repeat="(key,value) in vm.item" ng-if="key != 'id' && key != 'slika' && key != 'vrsta' && key != 'akcija' ">
 
                     {{key}}: {{value}}
-
                 </li>
+
+
 
                 <li class="list-group-item ">akcija: {{vm.onAction()}} </li>
 

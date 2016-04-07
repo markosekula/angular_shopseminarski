@@ -23,7 +23,7 @@
 
             function msgSucces(msg) {
                 if (msg.data) {
-                    console.log(msg.data.token)
+                    // console.log(msg.data.token)
                     sessionService.set('token', msg.data.token);
                     sessionService.set('id', msg.data.id);
                     sessionService.set('admin', msg.data.admin);
@@ -67,7 +67,6 @@
             sessionService.destroy('admin');
             $location.path('/pocetna');
         }
-
 
         function isloggedAdmin() {
             if (sessionService.get('admin') == 1)

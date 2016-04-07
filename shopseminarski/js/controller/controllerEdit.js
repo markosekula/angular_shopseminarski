@@ -32,8 +32,8 @@
                 .then(function (data) {
 
                     vm.idforedit = data;
-                    console.log("getID:" + vm.idforedit)
-                        //definisanje promenljive za dugme sacuvaj
+                    // console.log("getID:" + vm.idforedit)
+                    //definisanje promenljive za dugme sacuvaj
                     vm.item = vm.idforedit;
 
                     return vm.idforedit;
