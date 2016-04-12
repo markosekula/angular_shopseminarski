@@ -24,10 +24,10 @@
         </div>
     
         <div class="btn-group" role="group">
-            <button ng-click="" type="button" role="group" class="btn btn-warning">Korisnici</button>
+            <button type="button" role="group" class="btn btn-warning" ng-click="vm.getAllUsers()" >Korisnici</button>
         </div>
         <div class="btn-group" role="group">
-            <button ng-click="" type="button" role="group" class="btn btn-warning">Korpa</button>
+            <button type="button" role="group" class="btn btn-warning" ng-click="vm.getDateAndTime()">Korpa</button>
         </div>
         <div class="btn-group" role="group">
             <button type="button" role="group" class="btn btn-warning" ng-click="vm.getAllContact()">Kontakt</button>
@@ -188,10 +188,13 @@
         <form role="form1" name="form1" ng-show="vm.prikazikontakt">
             <table>
 
-                <tr>
-                    <h1>Poruke: </h1> </tr>
+                <div class="row">
+                    <div class="col-md-2"> </div>
+                    <div class="col-md-8">
+                        <h1>Poruke: </h1>
+                    </div>
+                </div>
                 <br>
-
                 <tr ng-repeat="cont in vm.contact">
                     <th>{{cont.ime}} </th>
                     <th>{{cont.email}} </th>
@@ -205,6 +208,67 @@
             <p>
                 {{vm.poruka}}
             </p>
+
+        </form>
+
+    </div>
+</div>
+
+
+<form role="form1" name="form1" ng-show="vm.prikaziporudzbine">
+    <div class="row">
+        <div class="col-md-4"> </div>
+        <div class="col-md-4">
+            <table>
+                <tr>
+                    <h1>Porudzbine: </h1>
+                </tr>
+            </table>
+            <br>
+            <table>
+                <tr ng-repeat="date in vm.dateAndTime">
+                    <th>{{date.vreme}}
+                        <button ng-click="vm.openOrder(date.id)" class="btn btn-danger btn-md">otvori</button>
+                    </th>
+
+                </tr>
+            </table>
+            <br>
+
+        </div>
+
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8">
+        <form role="form1" name="form1" ng-show="vm.prikazikorisnike">
+            <table class="table table-hover">
+
+                <div class="row">
+                    <div class="col-md-2"> </div>
+                    <div class="col-md-8">
+                        <h1>Registrovani Korisnici: </h1>
+                    </div>
+                </div>
+                <br>
+
+                <tr ng-repeat="user in vm.allUsers">
+                    <th>{{user.id}} </th>
+                    <th>{{user.ime}} </th>
+                    <th>{{user.prezime}} </th>
+                    <th>{{user.email}} </th>
+                    <th>{{user.pass}} </th>
+                    <th>
+                        <button ng-click="vm.deleteUser(user.id)" class="btn btn-danger btn-md">izbrisi</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>{{ vm.msg}} </th>
+                </tr>
+
+            </table>
 
         </form>
 

@@ -4,15 +4,17 @@
         .module('mainApp')
         .controller('controllerAdmin', controllerAdmin);
 
-    controllerAdmin.$inject = ['loginService', '$location', 'adminService', 'serviceKontakt'];
+    controllerAdmin.$inject = ['loginService', '$location', 'adminService', 'serviceKontakt', '$route'];
 
-    function controllerAdmin(loginService, $location, adminService, serviceKontakt) {
+    function controllerAdmin(loginService, $location, adminService, serviceKontakt, $route) {
         var vm = this;
 
         vm.prikazidugmice = false;
         vm.prikazisveinpute = false;
         vm.formizmeni = false;
         vm.prikazikontakt = false;
+        vm.prikaziporudzbine = false;
+        vm.prikazikorisnike = false;
 
         vm.izmeniartikal = izmeniartikal;
         vm.logout = logout;
@@ -21,15 +23,16 @@
         vm.getAllContact = getAllContact;
         contactAll();
         vm.deleteContact = deleteContact;
-
+        vm.getAllUsers = getAllUsers;
         vm.getDistinctType = getDistinctType;
         distinctType();
         vm.dodajDugme = dodajDugme;
         vm.listaSvihArtikala = listaSvihArtikala;
-
+        vm.getDateAndTime = getDateAndTime;
+        vm.openOrder = openOrder;
+        vm.deleteUser = deleteUser;
 
         function getDistinctType(typedistinct) {
-            //console.log("tip:" + typedistinct)
             vm.listaproizvoda = typedistinct;
             vm.dodajartikal = typedistinct;
 
@@ -37,6 +40,8 @@
             vm.prikazidugmice = true;
             vm.prikazisveinpute = false;
             vm.formizmeni = false;
+            vm.prikaziporudzbine = false;
+            vm.prikazikorisnike = false;
         }
 
         function distinctType() {
@@ -58,7 +63,6 @@
         function listaSvihArtikala(lista) {
             console.log("dsadas:" + lista)
             return itemOneTypeForEdit(lista).then(function (data) {
-                // console.log("listaaaaaa:" + lista)
                 vm.formizmeni = true;
                 vm.prikazisveinpute = false;
                 return vm.ime = lista;
@@ -76,10 +80,8 @@
 
         };
 
-
         function dodajDugme(tip) {
             vm.dodajartikal = tip;
-            //console.log("tip dodaj:" + tip)
             vm.prikazisveinpute = true;
             vm.formizmeni = false;
             return vm.ime = tip;
@@ -102,7 +104,6 @@
         }
 
         function porukaAdmin(proizvodi) {
-            //console.log("prozZZZ", proizvodi)
             return adminService.insertItem(proizvodi).then(function (data) {
                 vm.porukaadmin = data;
                 return vm.porukaadmin;
@@ -122,6 +123,8 @@
             vm.prikazidugmice = false;
             vm.prikazisveinpute = false;
             vm.formizmeni = false;
+            vm.prikaziporudzbine = false;
+            vm.prikazikorisnike = false;
 
             //  });
 
@@ -144,7 +147,6 @@
         };
 
         function deleteContact(id) {
-            //console.log("sda delete contact:" + id);
             return deleteOneContact(id).then(function (data) {
                 console.log("Success delete message!!")
                 contactAll();
@@ -158,6 +160,65 @@
                 return vm.poruka;
 
             });
+
+        }
+
+        function getDateAndTime() {
+            vm.prikaziporudzbine = true;
+
+            vm.prikazikontakt = false;
+            vm.prikazidugmice = false;
+            vm.prikazisveinpute = false;
+            vm.formizmeni = false;
+            vm.prikazikorisnike = false;
+
+            getDate();
+
+        }
+
+        function getDate() {
+            return adminService.getDateAndTime().then(function (data) {
+                vm.dateAndTime = data;
+                return vm.dateAndTime;
+
+            });
+        }
+
+        function openOrder(id) {
+            $location.path('/admin/cart/' + id);
+        }
+
+        function getAllUsers() {
+            vm.prikazikorisnike = true;
+
+            vm.prikaziporudzbine = false;
+            vm.prikazikontakt = false;
+            vm.prikazidugmice = false;
+            vm.prikazisveinpute = false;
+            vm.formizmeni = false;
+
+            getUsers();
+
+        }
+
+        function getUsers() {
+            return adminService.getAllUsers().then(function (data) {
+                vm.allUsers = data;
+                return vm.allUsers;
+
+            });
+        }
+
+        function deleteUser(id) {
+            // console.log(id)
+            return adminService.deleteUser(id).then(function (data) {
+                getUsers();
+                vm.msg = "Korisnik obrisan!!";
+                return vm.msg;
+
+
+            });
+
 
         }
 

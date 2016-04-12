@@ -15,7 +15,12 @@
             getDistinctType: getDistinctType,
             getIdForEdit: getIdForEdit,
             editItem: editItem,
-            deleteItem: deleteItem
+            deleteItem: deleteItem,
+            getDateAndTime: getDateAndTime,
+            getCart: getCart,
+            deletePurchase: deletePurchase,
+            getAllUsers: getAllUsers,
+            deleteUser: deleteUser
 
         };
 
@@ -124,6 +129,84 @@
 
             function errorDelete() {
                 return console.log('faield delete item');
+            }
+        }
+
+
+        function getDateAndTime() {
+            return $http.get('http://localhost:8082/Seminarski/rest/shopping/gettime')
+                .then(SuccessDate)
+                .catch(errorDate);
+
+            function SuccessDate(response) {
+                return response.data;
+            }
+
+            function errorDate(error) {
+                return console.log('faield dateAndTime', error);
+            }
+
+        }
+
+        function getCart(id) {
+            return $http.get('http://localhost:8082/Seminarski/rest/admincart/' + id)
+                .then(SuccessCart)
+                .catch(errorCart);
+
+            function SuccessCart(response) {
+                console.log(response.data)
+                return response.data;
+            }
+
+            function errorCart(error) {
+                return console.log('faield GET CART', error);
+            }
+
+        }
+
+        function deletePurchase(id) {
+            return $http.delete('http://localhost:8082/Seminarski/rest/admincart/delete/' + id)
+                .then(deleteSucces)
+                .catch(errorDelete);
+
+            function deleteSucces(response) {
+                console.log(response.data)
+                return response.data;
+            }
+
+            function errorDelete(error) {
+                return console.log('faield delete purchase', error);
+            }
+        }
+
+        function getAllUsers() {
+            return $http.get('http://localhost:8082/Seminarski/rest/korisnik/getusers')
+                .then(SuccessAllUsers)
+                .catch(errorAllUsers);
+
+            function SuccessAllUsers(response) {
+                console.log(response.data)
+                return response.data;
+            }
+
+            function errorAllUsers(error) {
+                return console.log('faield All Users', error);
+            }
+
+        }
+
+        function deleteUser(id) {
+            return $http.delete('http://localhost:8082/Seminarski/rest/korisnik/delete/' + id)
+                .then(deleteSucces)
+                .catch(errorDelete);
+
+            function deleteSucces(response) {
+                console.log(response.data)
+                return response.data;
+            }
+
+            function errorDelete(error) {
+                return console.log('faield delete user', error);
             }
         }
 

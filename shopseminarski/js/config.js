@@ -30,6 +30,11 @@
                     controller: 'controllerEdit',
                     controllerAs: 'vm'
                 })
+                .when('/admin/cart/:id', {
+                    templateUrl: 'views/admin-cart.html',
+                    controller: 'controllerAdminCart',
+                    controllerAs: 'vm'
+                })
                 .when('/akcija', {
                     templateUrl: 'views/akcija.html',
                     controller: 'controllerAkcija',
