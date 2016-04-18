@@ -110,3 +110,47 @@ th {
  box-shadow: 5px 5px 5px #F7DC6F;
 */
 }
+
+#exampledotted {
+    border: 2px solid white;
+    left: -7%;
+}
+
+#exampledotted1 {
+    /*    border: 2px dotted white;*/
+    left: -8%;
+}
+
+#exampleback {
+    left: 16%;
+}
+
+#exampledotted2 {
+    border: 1px dotted white;
+    left: -7%;
+    padding: 25px;
+    margin: 10px;
+}
+
+#exampleimg {
+    padding: 25px;
+}
+
+#examplecommentar {
+    background-color: grey;
+    position: absolute;
+    left: 22%;
+    margin-top: 10px;
+    max-width: 435px;
+}
+
+#exampletime {
+    position: absolute;
+    left: 75%;
+}
+
+#examplecomm {
+    {
+        border: 1px solid red;
+    }
+}

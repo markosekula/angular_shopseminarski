@@ -32,7 +32,6 @@
         };
 
         function Detail(index) {
-            //console.log("objecta" + index);
             $location.path('/' + index.vrsta + '/' + index.id);
 
         }

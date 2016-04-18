@@ -35,6 +35,11 @@
                     controller: 'controllerAdminCart',
                     controllerAs: 'vm'
                 })
+                .when('/admin/comments/:id', {
+                    templateUrl: 'views/admin-comments.html',
+                    controller: 'controllerAdminComments',
+                    controllerAs: 'vm'
+                })
                 .when('/akcija', {
                     templateUrl: 'views/akcija.html',
                     controller: 'controllerAkcija',
@@ -58,7 +63,7 @@
                 .when('/Keyboard/:index', {
 
                     templateUrl: 'views/item-detail.html',
-                    controller: 'controllerService',
+                    controller: 'controllerDetail',
                     controllerAs: 'vm'
                 })
                 .when('/CPU', {
@@ -68,7 +73,7 @@
                 })
                 .when('/CPU/:index', {
                     templateUrl: 'views/item-detail.html',
-                    controller: 'controllerService',
+                    controller: 'controllerDetail',
                     controllerAs: 'vm'
                 })
                 .when('/RAM', {
@@ -78,7 +83,7 @@
                 })
                 .when('/RAM/:index', {
                     templateUrl: 'views/item-detail.html',
-                    controller: 'controllerService',
+                    controller: 'controllerDetail',
                     controllerAs: 'vm'
                 })
                 .when('/FMem', {
@@ -88,7 +93,7 @@
                 })
                 .when('/FMem/:index', {
                     templateUrl: 'views/item-detail.html',
-                    controller: 'controllerService',
+                    controller: 'controllerDetail',
                     controllerAs: 'vm'
                 })
                 .when('/GPU', {
@@ -98,7 +103,7 @@
                 })
                 .when('/GPU/:index', {
                     templateUrl: 'views/item-detail.html',
-                    controller: 'controllerService',
+                    controller: 'controllerDetail',
                     controllerAs: 'vm'
                 })
                 .when('/Memory', {
@@ -108,7 +113,7 @@
                 })
                 .when('/Memory/:index', {
                     templateUrl: 'views/item-detail.html',
-                    controller: 'controllerService',
+                    controller: 'controllerDetail',
                     controllerAs: 'vm'
                 })
                 .when('/MBoard', {
@@ -118,7 +123,7 @@
                 })
                 .when('/MBoard/:index', {
                     templateUrl: 'views/item-detail.html',
-                    controller: 'controllerService',
+                    controller: 'controllerDetail',
                     controllerAs: 'vm'
                 })
                 .when('/Monitor', {
@@ -128,7 +133,7 @@
                 })
                 .when('/Monitor/:index', {
                     templateUrl: 'views/item-detail.html',
-                    controller: 'controllerService',
+                    controller: 'controllerDetail',
                     controllerAs: 'vm'
                 })
                 .when('/Mouse', {
@@ -138,7 +143,7 @@
                 })
                 .when('/Mouse/:index', {
                     templateUrl: 'views/item-detail.html',
-                    controller: 'controllerService',
+                    controller: 'controllerDetail',
                     controllerAs: 'vm'
                 })
 

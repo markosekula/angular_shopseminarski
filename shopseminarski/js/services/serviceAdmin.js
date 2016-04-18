@@ -20,8 +20,11 @@
             getCart: getCart,
             deletePurchase: deletePurchase,
             getAllUsers: getAllUsers,
-            deleteUser: deleteUser
-
+            deleteUser: deleteUser,
+            getDistinctComments: getDistinctComments,
+            deleteAllCommentsForOneItem: deleteAllCommentsForOneItem,
+            getAllComments: getAllComments,
+            deleteOneComment: deleteOneComment
         };
 
         function insertItem(proizvodi) {
@@ -132,7 +135,6 @@
             }
         }
 
-
         function getDateAndTime() {
             return $http.get('http://localhost:8082/Seminarski/rest/shopping/gettime')
                 .then(SuccessDate)
@@ -185,7 +187,7 @@
                 .catch(errorAllUsers);
 
             function SuccessAllUsers(response) {
-                console.log(response.data)
+                // console.log(response.data)
                 return response.data;
             }
 
@@ -210,9 +212,63 @@
             }
         }
 
+        function getDistinctComments() {
+            return $http.get('http://localhost:8082/Seminarski/rest/comments/admindistinct')
+                .then(SuccessComments)
+                .catch(errorComments);
 
+            function SuccessComments(response) {
+                // console.log(response.data)
+                return response.data;
+            }
 
+            function errorComments(error) {
+                return console.log('faield All distinct comments', error);
+            }
+        }
 
+        function deleteAllCommentsForOneItem(id) {
+            return $http.delete('http://localhost:8082/Seminarski/rest/comments/' + id)
+                .then(deleteSucces)
+                .catch(errorDelete);
+
+            function deleteSucces(response) {
+                return response.data;
+            }
+
+            function errorDelete() {
+                return console.log('faield delete comment');
+            }
+        }
+
+        function getAllComments(id) {
+            return $http.get('http://localhost:8082/Seminarski/rest/comments/get/all/' + id)
+                .then(SuccessComments)
+                .catch(errorComments);
+
+            function SuccessComments(response) {
+                // console.log(response.data)
+                return response.data;
+            }
+
+            function errorComments(error) {
+                return console.log('faield All comments', error);
+            }
+        }
+
+        function deleteOneComment(id) {
+            return $http.delete('http://localhost:8082/Seminarski/rest/comments/delete/one/' + id)
+                .then(deleteSucces)
+                .catch(errorDelete);
+
+            function deleteSucces(response) {
+                return response.data;
+            }
+
+            function errorDelete() {
+                return console.log('faield delete comment');
+            }
+        }
 
     }
 

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h2>Komentari za {{vm.allComments[0].vrsta}}: {{vm.allComments[0].proizvodjac}} - {{vm.allComments[0].model}} </h2> </div>
+</div>
+<hr>
+
+<div class="row">
+
+    <table width="1300">
+        <tr>
+            <th>Id komentara</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Komentar</th>
+            <th>Vreme</th>
+            <th> </th>
+        </tr>
+    </table>
+    <hr>
+
+    <table width="1300">
+        <tr ng-repeat="comment in vm.allComments">
+            <th>{{comment.id}} </th>
+            <th>{{comment.ime}} </th>
+            <th>{{comment.prezime}} </th>
+            <th>{{comment.komentar}} </th>
+            <th>
+                {{comment.vreme | date:'medium'}}
+            </th>
+
+            <th>
+                <button ng-click="vm.deleteOneComment(comment.id) " class="btn btn-danger btn-md ">izbrisi</button>
+            </th>
+        </tr>
+
+    </table>
+
+
+</div>
+<hr>
+
+<div class="form-group ">
+    <button ng-click="vm.back() " class="btn btn-success btn-md ">nazad</button>
+</div>

@@ -1,39 +1,71 @@
-<div>
-    <div class="row">
+<div> </div>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-1"> </div>
+    <div class="col-md-10">
+        <!--    <div class="movedetailitem">-->
+        <ul class="list-group">
+            <li class="list-group-item"><img ng-src="{{vm.item.slika}}" width="300" height="300"></img>
 
+                <div id="dodajUkorpu">
+                    <span class="glyphicon glyphicon-shopping-cart"> </span>
 
-        <div class="movedetailitem">
+                    <button class="btn btn-warning" ng-click="vm.addToCart(vm.item)"> Dodaj u korpu </button>
+                </div>
+            </li>
 
+            <li class="list-group-item" ng-repeat="(key,value) in vm.item" ng-if="key != 'id' && key != 'slika' && key != 'vrsta' && key != 'akcija' && key != 'quantity' ">
+                {{key}}: {{value}}
+            </li>
 
+            <li class="list-group-item ">akcija: {{vm.onAction()}} </li>
+        </ul>
+    </div>
+</div>
 
-            <ul class="list-group">
-                <li class="list-group-item"><img ng-src="{{vm.item.slika}}" width="300" height="300"></img>
+<div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-6" id="exampledotted">
+        <h3>Unesite svoj komentar </h3>
+        <div class="form-group">
+            <br>
+            <textarea class="form-control" ng-model="komentar" rows="3" required></textarea>
+        </div>
+        <div class="pull-right">
+            <button class="btn btn-success " ng-click="vm.submitComment(komentar)"> Posalji </button>
+        </div>
+    </div>
+    <div class="col-md-4" id="exampleback">
+        <button class="btn btn-primary " ng-click="vm.back()"> Nazad </button>
+    </div>
+</div>
+<hr>
 
-                    <div id="dodajUkorpu">
-                        <span class="glyphicon glyphicon-shopping-cart"> </span>
-
-                        <button class="btn btn-warning" ng-click="vm.addToCart(vm.item)"> Dodaj u korpu </button>
-                    </div>
-                </li>
-
-
-
-                <li class="list-group-item" ng-repeat="(key,value) in vm.item" ng-if="key != 'id' && key != 'slika' && key != 'vrsta' && key != 'akcija' ">
-
-                    {{key}}: {{value}}
-                </li>
-
-
-
-                <li class="list-group-item ">akcija: {{vm.onAction()}} </li>
-
-            </ul>
-
-            <div>
-                <button class="btn btn-primary " ng-click="vm.back() "> Nazad </button>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-9">
+        <div ng-if="vm.comments.length">
+            <h2><label for="exampleTextarea">Komentari:</label></h2>
+            <div ng-repeat="comm in vm.comments" id="exampledotted2">
+                <table>
+                    <tr>
+                        <th id="exampleimg"> <img src="img/user.png" height="60" width="60"> </th>
+                        <td id="examplecommentar">
+                            {{comm.komentar}}
+                        </td>
+                        <td id="exampletime">
+                            {{comm.vreme | date:'medium'}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> {{comm.ime}} {{comm.prezime}} </td>
+                    </tr>
+                </table>
 
             </div>
-
         </div>
     </div>
 </div>

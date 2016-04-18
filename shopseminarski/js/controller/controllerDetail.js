@@ -1,14 +1,18 @@
 (function () {
     angular
         .module('mainApp')
-        .controller('controllerService', controllerService);
+        .controller('controllerDetail', controllerDetail);
 
-    controllerService.$inject = ['$location', '$routeParams', 'mainFactory', 'serviceKorpa'];
+    controllerDetail.$inject = ['$location', '$routeParams', 'mainFactory', 'serviceKorpa', 'sessionService', '$routeParams', 'serviceKomentar', '$route'];
 
-    function controllerService($location, $routeParams, mainFactory, serviceKorpa) {
+    function controllerDetail($location, $routeParams, mainFactory, serviceKorpa, sessionService, $routeParams, serviceKomentar, $route) {
 
         var vm = this;
         vm.back = back;
+        vm.submitComment = submitComment;
+        var id = ($routeParams.index);
+
+        getComments(id);
 
         activate();
 
@@ -34,11 +38,42 @@
                     }
 
                 });
-
         }
 
         function back() {
             $location.path("/");
+        }
+
+        function submitComment(komentar) {
+            if (sessionService.get('token') === null) {
+                $location.path('/login');
+            } else {
+
+                var comment = {};
+
+                comment.id_proizvoda = id;
+                comment.komentar = komentar;
+
+                insertComment(comment);
+
+                //$route.reload();
+                window.location.reload();
+
+
+            }
+        }
+
+        function insertComment(comm) {
+            return serviceKomentar.sendComment(comm).then(function (data) {
+
+            });
+        }
+
+        function getComments(id) {
+            return serviceKomentar.getComments(id).then(function (data) {
+                vm.comments = data;
+                return vm.comments;
+            });
         }
 
     }

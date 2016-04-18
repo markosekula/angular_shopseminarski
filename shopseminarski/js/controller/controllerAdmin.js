@@ -15,6 +15,7 @@
         vm.prikazikontakt = false;
         vm.prikaziporudzbine = false;
         vm.prikazikorisnike = false;
+        vm.prikazikomentare = false;
 
         vm.izmeniartikal = izmeniartikal;
         vm.logout = logout;
@@ -31,6 +32,9 @@
         vm.getDateAndTime = getDateAndTime;
         vm.openOrder = openOrder;
         vm.deleteUser = deleteUser;
+        vm.openCommentsForProduct = openCommentsForProduct;
+        vm.deleteAllComments = deleteAllComments;
+        vm.openComments = openComments;
 
         function getDistinctType(typedistinct) {
             vm.listaproizvoda = typedistinct;
@@ -42,6 +46,7 @@
             vm.formizmeni = false;
             vm.prikaziporudzbine = false;
             vm.prikazikorisnike = false;
+            vm.prikazikomentare = false;
         }
 
         function distinctType() {
@@ -61,7 +66,7 @@
         }
 
         function listaSvihArtikala(lista) {
-            console.log("dsadas:" + lista)
+            // console.log("dsadas:" + lista)
             return itemOneTypeForEdit(lista).then(function (data) {
                 vm.formizmeni = true;
                 vm.prikazisveinpute = false;
@@ -125,6 +130,7 @@
             vm.formizmeni = false;
             vm.prikaziporudzbine = false;
             vm.prikazikorisnike = false;
+            vm.prikazikomentare = false;
 
             //  });
 
@@ -171,6 +177,7 @@
             vm.prikazisveinpute = false;
             vm.formizmeni = false;
             vm.prikazikorisnike = false;
+            vm.prikazikomentare = false;
 
             getDate();
 
@@ -196,6 +203,7 @@
             vm.prikazidugmice = false;
             vm.prikazisveinpute = false;
             vm.formizmeni = false;
+            vm.prikazikomentare = false;
 
             getUsers();
 
@@ -216,11 +224,50 @@
                 vm.msg = "Korisnik obrisan!!";
                 return vm.msg;
 
+            });
+
+        }
+
+        function openCommentsForProduct() {
+            vm.prikazikomentare = true;
+
+            vm.prikazikorisnike = false;
+            vm.prikaziporudzbine = false;
+            vm.prikazikontakt = false;
+            vm.prikazidugmice = false;
+            vm.prikazisveinpute = false;
+            vm.formizmeni = false;
+
+            getDistinctComments();
+        }
+
+        function getDistinctComments() {
+            return adminService.getDistinctComments().then(function (data) {
+                vm.distinctcomments = data;
+                id = vm.distinctcomments
+
+                return vm.distinctcomments;
 
             });
 
+        }
+
+        function deleteAllComments(id) {
+            console.log(id)
+            return adminService.deleteAllCommentsForOneItem(id).then(function (data) {
+                getDistinctComments();
+                vm.msg = "Obrisani svi komentari za dati artikal !!"
+                return vm.msg;
+
+            });
 
         }
+
+        function openComments(id) {
+            $location.path('/admin/comments/' + id);
+        }
+
+
 
 
     }
