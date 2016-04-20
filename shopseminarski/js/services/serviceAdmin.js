@@ -24,7 +24,9 @@
             getDistinctComments: getDistinctComments,
             deleteAllCommentsForOneItem: deleteAllCommentsForOneItem,
             getAllComments: getAllComments,
-            deleteOneComment: deleteOneComment
+            deleteOneComment: deleteOneComment,
+            getTenComments: getTenComments,
+            getCountComments: getCountComments
         };
 
         function insertItem(proizvodi) {
@@ -267,6 +269,36 @@
 
             function errorDelete() {
                 return console.log('faield delete comment');
+            }
+        }
+
+        function getTenComments(id, page_no) {
+            return $http.get('http://localhost:8082/Seminarski/rest/comments/get/only/ten/for/product/' + id + '/' + page_no)
+                .then(SuccessComments)
+                .catch(errorComments);
+
+            function SuccessComments(response) {
+                // console.log(response.data)
+                return response.data;
+            }
+
+            function errorComments(error) {
+                return console.log('faield All comments', error);
+            }
+        }
+
+        function getCountComments(id_product) {
+            return $http.get('http://localhost:8082/Seminarski/rest/comments/get/count/' + id_product)
+                .then(SuccessComments)
+                .catch(errorComments);
+
+            function SuccessComments(response) {
+                // console.log(response.data)
+                return response.data;
+            }
+
+            function errorComments(error) {
+                return console.log('faield all count comments', error);
             }
         }
 
