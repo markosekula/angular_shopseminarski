@@ -154,3 +154,8 @@ th {
         border: 1px solid red;
     }
 }
+
+#myCarousel {
+    width: 100%;
+    left: 5%;
+}

@@ -14,6 +14,7 @@
         vm.login = login;
         vm.signup = signup;
         vm.nazadnapocetnu = nazadnapocetnu;
+        vm.goToResetPassword = goToResetPassword;
 
         function login(user) {
             return Message(user).then(function () {
@@ -48,6 +49,10 @@
         function nazadnapocetnu() {
             $location.path('/');
 
+        }
+
+        function goToResetPassword() {
+            $location.path('/resetPassword');
         }
 
 

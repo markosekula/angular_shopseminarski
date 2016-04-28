@@ -15,6 +15,11 @@
                     controller: 'controllerLogin',
                     controllerAs: 'vm'
                 })
+                .when('/resetPassword', {
+                    templateUrl: 'views/reset-password.html',
+                    controller: 'controllerResetPassword',
+                    controllerAs: 'vm'
+                })
                 .when('/signup', {
                     templateUrl: 'views/signup.html',
                     controller: 'controllerLogin',
