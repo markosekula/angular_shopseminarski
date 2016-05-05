@@ -1,0 +1,121 @@
+<div class="md-col-12 " id="akcijamove">
+
+    <table>
+        <tr>
+            <h1>Proizvodi na akciji: </h1>
+            <input class="btn btn-primary " ng-click="vm.nazadnapocetnu()" type="button" value="nazad" id="actionback">
+        </tr>
+        <tr>
+            <td id="rowone" ng-repeat="itemaction in vm.randomonaction" ng-if="$index<=2">
+                <table>
+                    <tr> <img class="rowone" ng-src="{{itemaction.slika}}" width="250" height="250"></img>
+                    </tr>
+                    <br>
+
+                    <tr>
+                        {{itemaction.proizvodjac }}
+                    </tr>
+                    <br>
+
+                    <tr>
+                        {{itemaction.model }}
+                    </tr>
+                    <br>
+                    <tr>
+                        <button ng-click="vm.itemDetail(itemaction)" class="btn btn-info">detaljnije</button>
+                    </tr>
+                    <br>
+
+                </table>
+                <br>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td ng-repeat="itemaction in vm.randomonaction" ng-if="$index>=3 && $index<=5">
+                <table>
+                    <tr> <img class="rowone" ng-src="{{itemaction.slika}}" width="250" height="250"></img>
+                    </tr>
+                    <br>
+
+                    <tr>{{itemaction.proizvodjac }}</tr>
+                    <br>
+
+                    <tr>{{itemaction.model }}</tr>
+                    <br>
+
+                    <tr>
+                        <button ng-click="vm.itemDetail(itemaction)" class="btn btn-info">detaljnije</button>
+                    </tr>
+                    <br>
+                </table>
+                <br>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td ng-repeat="itemaction in vm.randomonaction" ng-if="$index>=6 && $index<=8">
+                <table>
+                    <tr> <img class="rowone" ng-src="{{itemaction.slika}}" width="250" height="250"></img>
+                    </tr>
+                    <br>
+
+                    <tr>{{itemaction.proizvodjac }}</tr>
+                    <br>
+
+                    <tr>{{itemaction.model }}</tr>
+                    <br>
+
+                    <tr>
+                        <button ng-click="vm.itemDetail(itemaction)" class="btn btn-info">detaljnije</button>
+                    </tr>
+                    <br>
+                </table>
+                <br>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td ng-repeat="itemaction in vm.randomonaction" ng-if="$index>=9 && $index<=11">
+                <table>
+                    <tr> <img class="rowone" ng-src="{{itemaction.slika}}" width="250" height="250"></img>
+                    </tr>
+                    <br>
+
+                    <tr>{{itemaction.proizvodjac }}</tr>
+                    <br>
+
+                    <tr>{{itemaction.model }}</tr>
+                    <br>
+
+                    <tr>
+                        <button ng-click="vm.itemDetail(itemaction)" class="btn btn-info">detaljnije</button>
+                    </tr>
+                    <br>
+                </table>
+                <br>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td ng-repeat="itemaction in vm.randomonaction" ng-if="$index>=12 && $index<=14">
+                <table>
+                    <tr> <img class="rowone" ng-src="{{itemaction.slika}}" width="250" height="250"></img>
+                    </tr>
+                    <br>
+
+                    <tr>{{itemaction.proizvodjac }}</tr>
+                    <br>
+
+                    <tr>{{itemaction.model }}</tr>
+                    <br>
+
+                    <tr>
+                        <button ng-click="vm.itemDetail(itemaction)" class="btn btn-info">detaljnije</button>
+                    </tr>
+                    <br>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

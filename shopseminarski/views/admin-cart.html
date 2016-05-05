@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1>Porudzbina</h1> </div>
+
+
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-4">
+        <div> <span><h4>Email korisnika: {{vm.cartAll[0].email}}</h4></span> </div>
+    </div>
+    <div class="col-md-8">
+
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8">
+        <table>
+            <tr>
+                <th>Vrsta</th>
+                <th>Proizvodjac</th>
+                <th>Model</th>
+                <th>Pojedinacna cena</th>
+                <th>Kolicina</th>
+            </tr>
+        </table>
+        <hr>
+
+        <table>
+            <tr ng-repeat="cart in vm.cartAll">
+                <th>{{cart.vrsta}} </th>
+                <th>{{cart.proizvodjac}}</th>
+                <th>{{cart.model}} </th>
+                <th>{{cart.cena}},00 dinara </th>
+                <th>{{cart.kolicina}} </th>
+            </tr>
+        </table>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <span><h4>Ukupna cena porudzbine: {{vm.cartAll[0].ukupna_cena}},00 dinara </h4></span>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div class="form-group">
+    <button ng-click="vm.deletePurchase()" class="btn btn-danger btn-md">izbrisi porudzbinu</button>
+    <button ng-click="vm.back()" class="btn btn-success btn-md">nazad</button>
+</div>

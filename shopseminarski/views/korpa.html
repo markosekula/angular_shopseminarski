@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-md-1"> </div>
+    <div class="col-md-10">
+        <h1>Korpa </h1></div>
+</div>
+</div>
+
+<div ng-if="vm.cart.length">
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h2>{{vm.cart.length}} proizvod(a) u korpi.</h2>
+            <br>
+            <hr>
+            <table>
+                <tr>
+                    <th> </th>
+                    <th>Vrsta</th>
+                    <th>Proizvodjac</th>
+                    <th>Model</th>
+                    <th>Pojedinacna cena</th>
+                </tr>
+            </table>
+            <hr>
+            <table>
+                <tr class="cart-item th radius" ng-repeat="item in vm.cart">
+                    <th><span ng-click="vm.clickRemoveItem(item)" class="glyphicon glyphicon-remove"></span> </th>
+                    <th> {{item.vrsta}} </th>
+                    <th> {{item.proizvodjac}} <span class="badge" ng-show="item.quantity > 1">x{{item.quantity}}
+				        </span> </th>
+                    <th> {{item.model}} </th>
+                    <th> {{item.cena}} dinara </th>
+                </tr>
+            </table>
+            <hr>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <button class="btn btn-danger " ng-click="vm.onClickClearCart()"> Isprazni korpu </button>
+                <button class="btn btn-primary" ng-click="vm.submitBuying()"> Potvrdi kupovinu</button>
+            </div>
+            {{vm.msg}}
+        </div>
+
+        <div class="col-md-3">
+            <div class="pull-right">
+                <div> <span><a href="#pocetna"><h4>Nastavi sa kupovinom</h4> </a> </span> </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="pull-right">
+                <div><span><h4>Ukupna cena: {{vm.cartPrice}} dinara.</h4> </span> </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

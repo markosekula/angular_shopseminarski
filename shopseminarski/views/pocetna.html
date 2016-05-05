@@ -1,0 +1,196 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="col-md-4">
+            <h1> <span class="glyphicon glyphicon-gift"></span>  Online SHOP </h1>
+        </div>
+
+        <div id="pretraga" class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon"> 
+                <span class="glyphicon glyphicon-search"> </span>
+                </span>
+                <input type="text" class="searchpocetna" placeholder="Pretraga artikala " data-ng-model="search" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <nav class="navbar navbar-inverse" id="navwith">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Proizvodi:</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#">O nama</a></li>
+                    <li><a href="#akcija">Akcija</a></li>
+                    <li><a href="#korpa">Korpa</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#signup"><span class="glyphicon glyphicon-user"></span> Registruj se</a></li>
+                    <li ng-show="vm.show()"><a href="#login"><span class="glyphicon glyphicon-log-in" ></span> Prijavi se</a></li>
+                    <li ng-hide="vm.show()" ng-click="vm.logout()"><a href=""><span  class="glyphicon glyphicon-off" ></span> Odjavi se</a></li>
+
+
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div>
+            <ul class="nav nav-pills nav-stacked ">
+                <li role="presentation" ng-click="vm.openKeyboard()"><a>Tastature</a></li>
+                <li role="presentation" ng-click="vm.openCPU()"><a>Procesori</a></li>
+                <li role="presentation" ng-click="vm.openRAM()"><a>Ram Memorije</a></li>
+                <li role="presentation" ng-click="vm.openFMem()"><a>Fles Memorije</a></li>
+                <li role="presentation" ng-click="vm.openMonitor()"><a>Monitori</a></li>
+                <li role="presentation" ng-click="vm.openMouse()"><a>Misevi</a></li>
+                <li role="presentation" ng-click="vm.openGPU()"><a>Graficke Kartice</a></li>
+                <li role="presentation" ng-click="vm.openMemory()"><a>Hard Diskovi</a></li>
+                <li role="presentation" ng-click="vm.openMBoard()"><a>Maticne Ploce</a></li>
+            </ul>
+
+        </div>
+        <br>
+
+    </div>
+
+
+    <div class="col-md-9">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"> </li>
+                <li data-target="#myCarousel" data-slide-to="1"> </li>
+                <li data-target="#myCarousel" data-slide-to="2"> </li>
+                <li data-target="#myCarousel" data-slide-to="3"> </li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="img/carousel/oops.jpg" alt="oops" height="250">
+                    <div class="carousel-caption">
+                        <h5> </h5>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="img/carousel/eng.jpg" alt="eng" height="250">
+                    <div class="carousel-caption">
+                        <h5> </h5>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="img/carousel/nivea.jpg" alt="nivea" height="250">
+                    <div class="carousel-caption">
+                        <h5> </h5>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="img/carousel/brand.png" alt="brand" height="250">
+                    <div class="carousel-caption">
+                        <h5></h5>
+                    </div>
+                </div>
+            </div>
+
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="icon-prev"> </span>
+            </a>
+
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="icon-next"> </span>
+            </a>
+
+        </div>
+        <br>
+
+        <table>
+            <tr>
+                <tr>
+                    <p>Proizvodi u ponudi: </p>
+                </tr>
+                <td id="rowone" ng-repeat="itemr in vm.randomitems | filter:search" ng-if="$index<=4">
+                    <table>
+                        <tr> <img ng-src="{{itemr.slika}}" width="180" height="180"></img>
+                        </tr>
+                        <br>
+
+                        <tr>
+                            {{itemr.proizvodjac }}
+                        </tr>
+                        <br>
+
+                        <tr>
+                            {{itemr.model }}
+                        </tr>
+                        <br>
+                        <tr>
+                            <button ng-click="vm.itemDetail(itemr)" class="btn btn-info">detaljnije</button>
+                        </tr>
+                        <br>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td ng-repeat="itemr in vm.randomitems | filter:search" ng-if="$index>=5 && $index<=9">
+                    <table>
+                        <tr> <img ng-src="{{itemr.slika}}" width="180" height="180"></img>
+                        </tr>
+                        <br>
+
+                        <tr>{{itemr.proizvodjac }}</tr>
+                        <br>
+
+                        <tr>{{itemr.model }}</tr>
+                        <br>
+
+                        <tr>
+                            <button ng-click="vm.itemDetail(itemr)" class="btn btn-info">detaljnije</button>
+                        </tr>
+                        <br>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td ng-repeat="itemr in vm.randomitems | filter:search" ng-if="$index>9">
+                    <table>
+                        <tr> <img ng-src="{{itemr.slika}}" width="180" height="180"></img>
+                        </tr>
+                        <br>
+
+                        <tr>{{itemr.proizvodjac }}</tr>
+                        <br>
+
+                        <tr>{{itemr.model }}</tr>
+                        <br>
+
+                        <tr>
+                            <button ng-click="vm.itemDetail(itemr)" class="btn btn-info">detaljnije</button>
+                        </tr>
+                        <br>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h2>Komentari za {{vm.allComments[0].vrsta}}: {{vm.allComments[0].proizvodjac}} - {{vm.allComments[0].model}} </h2> </div>
+</div>
+<hr>
+
+<div class="row">
+
+    <table width="1300">
+        <tr>
+            <th>Id komentara</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Komentar</th>
+            <th>Vreme</th>
+            <th> </th>
+        </tr>
+    </table>
+    <hr>
+
+    <table width="1300">
+        <tr ng-repeat="comment in vm.allComments">
+            <th>{{comment.id}} </th>
+            <th>{{comment.ime}} </th>
+            <th>{{comment.prezime}} </th>
+            <th>{{comment.komentar}} </th>
+            <th>
+                {{comment.vreme | date:'medium'}}
+            </th>
+            <th>
+                <button ng-click="vm.deleteOneComment(comment.id) " class="btn btn-danger btn-md ">izbrisi</button>
+            </th>
+        </tr>
+
+    </table>
+
+
+</div>
+<hr>
+
+<div class="form-group ">
+    <button ng-click="vm.back() " class="btn btn-info btn-md ">nazad</button>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <ul class="pagination">
+
+            <li class="previous" ng-click="vm.previousButton()"><a>Previous</a></li>
+
+
+
+            <li ng-repeat=" no in vm.pages " ng-click="vm.getTenCommentsForOneProduct(id_proizvoda, no) " ng-class="{active: vm.clicked===no} ">
+                <a> {{no}} </a>
+            </li>
+
+            <li class="next" ng-click="vm.nextButton()"><a>Next</a></li>
+
+        </ul>
+
+
+    </div>
+
+</div>

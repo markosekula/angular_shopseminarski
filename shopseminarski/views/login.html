@@ -1,0 +1,47 @@
+<div class="modal-dialog">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="text-center">Login </h1>
+        </div>
+
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-save"> </span>
+                        </span>
+                        <input type="email" placeholder="marko10@example.com" class="form-control" ng-model="user.email" required> </input>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <span class="input-group-addon"> 
+             <span class="glyphicon glyphicon-lock"> </span></span>
+                        <input type="password" placeholder="password" id="examplepassword" class="form-control" ng-model="user.pass" required> </input>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-block btn-primary" ng-click="vm.login(user)">
+                    <span class="pull-left"><a ng-click="vm.goToResetPassword()">Forgot your password? </a> </span>
+                    <span class="pull-right"><a href="#signup">Register </a> </span>
+                    </input>
+                </div>
+
+                <br>
+                <p> {{vm.message}} </p>
+
+            </form>
+            <div class="modal-footer">
+                <div class="col-md-1">
+                    <button class="btn-danger" ng-click="vm.nazadnapocetnu()">cancel </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
