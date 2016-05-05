@@ -267,11 +267,6 @@
             $location.path('/admin/comments/' + id);
         }
 
-
-
-
     }
-
-
 
 })();

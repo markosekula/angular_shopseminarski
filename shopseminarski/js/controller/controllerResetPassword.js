@@ -10,35 +10,44 @@
         var vm = this;
 
         vm.backToLogin = backToLogin;
+        vm.backToRegister = backToRegister;
         vm.sendEmail = sendEmail;
 
         function backToLogin() {
             $location.path("/login");
         }
 
+        function backToRegister() {
+            $location.path("/signup");
+        }
+
         function sendEmail(obj) {
             console.log("objekat", obj)
-            var str = '';
-            var p;
 
-            if (obj.hasOwnProperty(p)) {
-                str = '\n' + obj[p] + '\n';
+            var str = '';
+
+            for (var p in obj) {
+                if (obj.hasOwnProperty(p)) {
+                    str += '\n' + obj[p] + '\n';
+                }
             }
 
             console.log(str)
 
-            return sendEmailForChangePassword(str).then(function (data) {
-                console.log("Success send email!!")
+            return sendEmailForChangePassword(str).then(function (response) {
+                // console.log("Success send email!!")
+
             });
         }
 
         function sendEmailForChangePassword(email) {
             return serviceResetPassword.getEmailForChangePassword(email)
-                .then(function (data) {
+                .then(function (response) {
+                    vm.msg = response;
+                    return vm.msg;
 
                 });
         }
-
 
     }
 

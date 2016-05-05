@@ -20,6 +20,11 @@
                     controller: 'controllerResetPassword',
                     controllerAs: 'vm'
                 })
+                .when('/changePassword/:email', {
+                    templateUrl: 'views/change-password.html',
+                    controller: 'controllerChangePassword',
+                    controllerAs: 'vm'
+                })
                 .when('/signup', {
                     templateUrl: 'views/signup.html',
                     controller: 'controllerLogin',
